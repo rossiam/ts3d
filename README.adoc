@@ -7,10 +7,7 @@ I love using OpenSCAD but I really miss the power of a full programming language
 miss data structures.) So, I've written this little TypeScript library that generates OpenSCAD
 files.
 
-[IMPORTANT]
-====
-This project is a work in progress.
-====
+NOTE: This project is a work in progress.
 
 == My Workflow
 
