@@ -1,0 +1,11 @@
+{
+	"deno.enable": true,
+	"cSpell.words": [
+		"chamferable",
+		"customizer",
+		"frustumable",
+		"halign",
+		"minkowski",
+		"valign"
+	]
+}

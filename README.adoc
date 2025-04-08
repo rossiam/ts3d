@@ -1,0 +1,114 @@
+:hide-uri-scheme:
+:source-highlighter: highlight.js
+
+== Overview
+
+This is simple TypeScript library for generating OpenSCAD documents. Currently it is very
+much a work in progress.
+
+== My Workflow
+
+* create a TypeScript file that creates a shape and renders it
+
+.Example Script
+[source,typescript]
+----
+// TODO: add imports from jsr
+
+const randomThing = difference(
+	union(
+		cuboid(100, 50, 25).round({ edges: 'all', radius: 4 }).move(0, -100, 0),
+		cylinder(10, 50).chamfer({ radius: 4, edges: 'bottom' }).move(4, 4, 0),
+	),
+	cuboid(32, 16, 42).round({ radius: 4, edges: 'sides' }).move(20, 100, -1),
+)
+
+const variables = {
+	'$fn': 60,
+	chamfer_radius: 0.6,
+}
+randomThing.writeCADAndRender({ filename: 'my-awesome-model.scad', variables })
+----
+
+* run `deno` in watch mode
+
+[source,shell]
+----
+$ deno run --allow-write --allow-run --watch my-awesome-model.ts
+----
+
+** `--allow-write` is needed if rendering to .scad with `writeCAD`
+** `--allow-run` is needed in addition to `--allow-write` if automatically rendering to stl with
+   `writeCADAndRender`
+
+* make changes;
+
+== Prerequisites
+
+* https://deno.com
+* https://openscad.org
+
+== TODO
+
+* 2d shapes: circle, square, polygon, import, projection
+* 3d shapes: sphere, finish cube and cylinder, polyhedron, import, linear_extrude, rotate_extrude,
+  surface
+* make examples use published version
+* TODOs all over the code
+* TESTS TESTS TESTS
+
+== Translating OpenSCAD to ts3d
+
+TODO: much more to explain here
+
+* cube
+	** normally use `cuboid` (for cuboid with sides of varying links)
+    ** use `cube` for actual cube
+* cylinder
+    ** `cylinder` is reserved for a cylinder with ends of the same diameter
+	** use `frustum` for a frustum with different size circles on each end
+	** use `cone` for a cone
+
+== Candy
+
+TODO: describe these more fully
+
+* `.chamfer` and `round`
+* `.move`
+* `text3d`
+
+== Notes
+
+* null or undefined values in most things that take a list of shapes like union or difference
+    are ignored TODO: describe why this is useful
+* some idiosyncrasies of OpenSCAD have been removed; some have not
+* some of my own idiosyncrasies have certainly found their way in 😂
+
+== Pros and Cons
+
+Pros
+
+* full power of TypeScript
+* full power of TypeScript (main reason for doing this; counts as _at least_ two pros 😁)
+* some idiosyncrasies of OpenSCAD have been fixed
+* can have STL files generated automatically on save
+
+Cons
+
+* need to check for errors in two places (mitigated somewhat by extra error checking in TypeScript)
+* potentially slower but not noticeable to me
+* in OpenSCAD, you can more easily include logic inside modules; in TypeScript you have
+    to do the logic up front or use an https://developer.mozilla.org/en-US/docs/Glossary/IIFE[
+		Immediately Invoked Function Expression] TODO: add example of this
+* some idiosyncrasies of OpenSCAD have been fixed (might be confusing especially since there isn't
+  great documentation for this library yet)
+* has its own set of idiosyncrasies
+
+== Alternatives I've Encountered
+
+* Plain ol' trusty OpenSCAD
+* https://github.com/zalo/CascadeStudio[Cascade Studio]
+* https://github.com/jscad/OpenJSCAD.org[JSCAD]
+* https://github.com/farrellm/scad-clj[scad-clj] using https://github.com/PEZ/scad-clj-workflow[Calva]
+* https://github.com/steeringwaves/openscad-js[openscad-js]
+* https://github.com/amatiasq/scad-ts[scad-ts] / https://github.com/20lives/scad-js[scad-js]
