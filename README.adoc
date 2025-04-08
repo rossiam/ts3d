@@ -3,12 +3,14 @@
 
 == Overview
 
-This is simple TypeScript library for generating OpenSCAD documents.
+I love using OpenSCAD but I really miss the power of a full programming language. (I particularly
+miss data structures.) So, I've written this little TypeScript library that generates OpenSCAD
+files.
 
-.Note
-****
-‼ This project is currently very much a work in progress.
-****
+[IMPORTANT]
+====
+This project is a work in progress.
+====
 
 == My Workflow
 
