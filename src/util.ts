@@ -1,4 +1,4 @@
-import { union } from './containers.ts'
+import { union } from './container.ts'
 import type { Shape } from './shape.ts'
 
 

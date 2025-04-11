@@ -3,14 +3,21 @@
 	"version": "0.0.1",
 	"exports": {
 		".": "./mod.ts",
+		"./circle": "./src/circle.ts",
 		"./combinator": "./src/combinator.ts",
-		"./containers": "./src/containers.ts",
+		"./container": "./src/container.ts",
 		"./cuboid": "./src/cuboid.ts",
 		"./cylinder": "./src/cylinder.ts",
 		"./defs": "./src/defs.ts",
 		"./document": "./src/document.ts",
+		"./import": "./src/import.ts",
+		"./linear-extrude": "./src/linear-extrude.ts",
 		"./modifiers": "./src/modifiers.ts",
+		"./renderable": "./src/renderable.ts",
 		"./shape": "./src/shape.ts",
+		"./sphere": "./src/sphere.ts",
+		"./text": "./src/text.ts",
+		"./util": "./src/util.ts",
 		"./vector": "./src/vector.ts"
 	},
 	"tasks": {

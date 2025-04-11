@@ -1,8 +1,8 @@
 // TODO: Make this an example importing from jsr directly
-import { difference, union } from '../src/containers.ts'
+import { difference, union } from '../src/container.ts'
 import { cube, cuboid } from '../src/cuboid.ts'
 import { cone, cylinder, frustum } from '../src/cylinder.ts'
-import { move } from '../src/modifiers.ts'
+import { move } from '../src/modifier.ts'
 import { sphere } from '../src/sphere.ts'
 import { range } from '../src/util.ts'
 import { vector as v } from '../src/vector.ts'
