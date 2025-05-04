@@ -12,7 +12,7 @@
 		"./document": "./src/document.ts",
 		"./import": "./src/import.ts",
 		"./linear-extrude": "./src/linear-extrude.ts",
-		"./modifiers": "./src/modifiers.ts",
+		"./modifier": "./src/modifier.ts",
 		"./renderable": "./src/renderable.ts",
 		"./shape": "./src/shape.ts",
 		"./sphere": "./src/sphere.ts",
