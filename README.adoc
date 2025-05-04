@@ -59,6 +59,8 @@ $ deno run --allow-write --allow-run --watch my-awesome-model.ts
 * make examples use published version
 * TODOs all over the code
 * TESTS TESTS TESTS
+* maybe be able to run a temporary script that uses `fontmetrics` or `textmetrics` to help calculate font size?
+* fantasy: output directly to some other format like stl, 3mf, step, obj, or amf maybe
 
 == Translating OpenSCAD to ts3d
 
@@ -106,6 +108,7 @@ Cons
 * some idiosyncrasies of OpenSCAD have been fixed (might be confusing especially since there isn't
   great documentation for this library yet)
 * has its own set of idiosyncrasies
+* when dealing with text, there is no way currently to call `fontmetrics` or `textmetrics`
 
 == Alternatives I've Encountered
 

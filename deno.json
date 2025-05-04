@@ -1,6 +1,6 @@
 {
 	"name": "@rossiam/ts3d",
-	"version": "0.0.1",
+	"version": "0.0.1-pre1",
 	"exports": {
 		".": "./mod.ts",
 		"./circle": "./src/circle.ts",
