@@ -33,6 +33,17 @@ export type ChainRotateFunc = {
 	(x: number, y: number, z: number): Shape
 }
 
+export type ChainScaleFunc = {
+	(by: Vector): Shape
+	(x: number, y: number, z?: number): Shape
+}
+
+// TODO: add support for extra `auto` parameter
+export type ChainResizeFunc = {
+	(to: Vector): Shape
+	(x: number, y: number, z?: number): Shape
+}
+
 export type Shape = {
 	name: string
 	type: '2D' | '3D'
@@ -55,8 +66,8 @@ export type Shape = {
 
 	move: ChainMoveFunc
 	rotate: ChainRotateFunc
-	// scale
-	// resize
+	scale: ChainScaleFunc
+	resize: ChainResizeFunc
 }
 
 export const shapeBase: Shape & ProtectedShape = {
@@ -153,8 +164,26 @@ export const shapeBase: Shape & ProtectedShape = {
 			this,
 		)
 	},
-	// scale: () => Shape
-	// resize: () => Shape
+	scale(by: number | Vector, y?: number, z?: number): Shape {
+		if (typeof by === 'number') {
+			return combinator('scale', `[${by}, ${y}, ${z}]`, this)
+		}
+		return combinator(
+			'scale',
+			`[${by.x}, ${by.y}${by.z ? `, ${by.z}` : ''}]`,
+			this,
+		)
+	},
+	resize(to: number | Vector, y?: number, z?: number): Shape {
+		if (typeof to === 'number') {
+			return combinator('scale', `[${to}, ${y}, ${z ?? 0}]`, this)
+		}
+		return combinator(
+			'resize',
+			`[${to.x ?? 0}, ${to.y ?? 0}, ${to.z ?? 0}]`,
+			this,
+		)
+	},
 	// subtract
 	// intersect
 	// add

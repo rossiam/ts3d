@@ -40,6 +40,10 @@ export const translate = move
 // TODO: would there be any benefit from naming this `rotated-${singleChild.name | 'union'}
 export const rotate = (angles: Vector, ...shapes: (Shape | undefined | null)[]): Shape =>
 	combinator('rotate', `[${angles.x}, ${angles.y}, ${angles.z}]`, ...shapes)
-// scale: () => Shape
-// resize: () => Shape
 // color
+
+export const scale = (by: Vector, ...shapes: (Shape | undefined | null)[]): Shape =>
+	combinator('scale', `[${by.x}, ${by.y}, ${by.z}]`, ...shapes)
+// TODO: support "auto" parameter
+export const resize = (to: Vector, ...shapes: (Shape | undefined | null)[]): Shape =>
+	combinator('resize', `[${to.x}, ${to.y}, ${to.z}]`, ...shapes)

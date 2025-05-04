@@ -1,4 +1,4 @@
-// TODO: detect by default; allow user to change
+// TODO: detect by default; allow user to configure
 const openSCADBinary = '/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD'
 
 export type RenderOptions = {
