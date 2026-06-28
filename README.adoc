@@ -7,7 +7,11 @@ I love using OpenSCAD but I really miss the power of a full programming language
 miss data structures.) So, I've written this little TypeScript library that generates OpenSCAD
 files.
 
-NOTE: This project is a work in progress.
+[IMPORTANT]
+.Work in Progress
+====
+ This project is very much a work in progress.
+====
 
 == My Workflow
 
@@ -49,7 +53,7 @@ $ deno run --allow-write --allow-run --watch my-awesome-model.ts
 == Prerequisites
 
 * https://deno.com
-* https://openscad.org
+* https://openscad.org; need a development snapshot or nightly build from https://openscad.org/downloads.html#snapshots to render STL
 
 == TODO
 
@@ -79,6 +83,7 @@ TODO: much more to explain here
 TODO: describe these more fully
 
 * `.chamfer` and `round`
+* no fillet but you can use `difference` to subtract a chamfered or rounded shape to get a fillet
 * `.move`
 * `text3d`
 

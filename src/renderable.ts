@@ -1,5 +1,7 @@
-// TODO: detect by default; allow user to configure
-const openSCADBinary = '/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD'
+import { findOpenSCAD } from './openscad.ts'
+
+
+const openSCADBinary = await findOpenSCAD()
 
 export type RenderOptions = {
 	outputFormat: 'stl' | 'binary-stl'
