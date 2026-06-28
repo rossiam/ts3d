@@ -16,11 +16,19 @@ export type Vector = {
 
 export const vector = (x: number, y: number, z: number): Vector => ({
 	x, y, z,
-	// TODO: allow listing x, y, and z
-	add: (v2: Vector): Vector => vector(x + v2.x, y + v2.y, z + v2.z),
-	subtract: (v2: Vector): Vector => vector(x - v2.x, y - v2.y, z - v2.z),
+	add: (otherVecOrX: Vector | number, otherY?: number, otherZ?: number): Vector => {
+		const v2 = typeof otherVecOrX === 'number'
+			? vector(otherVecOrX, otherY ?? 0, otherZ ?? 0) : otherVecOrX
+		return vector(x + v2.x, y + v2.y, z + v2.z)
+	},
+	subtract: (otherVecOrX: Vector | number, otherY?: number, otherZ?: number): Vector => {
+		const v2 = typeof otherVecOrX === 'number'
+			? vector(otherVecOrX, otherY ?? 0, otherZ ?? 0) : otherVecOrX
+		return vector(x - v2.x, y - v2.y, z - v2.z)
+	},
 	// TODO: name? (flip or something more technical?)
 	negate: (): Vector => vector(-x, -y, -z),
+	// TODO: allow separate ratios for x, y, and z
 	scale: (ratio: number): Vector => vector(-x * ratio, -y * ratio, -z * ratio),
 	// TODO: add fudge factor parameter?
 	equals: (v2: Vector): boolean => x === v2.x && y === v2.y && z === v2.z,
@@ -35,6 +43,7 @@ export const vector = (x: number, y: number, z: number): Vector => ({
 export type Vector2D = {
 	x: number
 	y: number
+	// TODO: allow listing x, y like the 3d version
 	add(v2: Vector2D): Vector2D
 	subtract(v2: Vector2D): Vector2D
 	negate(): Vector2D
