@@ -1,6 +1,7 @@
 {
 	"name": "@rossiam/ts3d",
 	"version": "0.0.1-pre2",
+	"license": "LGPL-3.0-only",
 	"exports": {
 		".": "./mod.ts",
 		"./circle": "./src/circle.ts",
